@@ -26,18 +26,21 @@
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
   background-image: url(Assets/background.jpg);
+  background-position: center;
+  background-size: cover;
   font-family: InterTight;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 96px;
 }
 
 .loginWrap {
-  /* background-color: red; */
   width: 640px;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,7 +61,6 @@ body {
 
 .loginForm {
   width: 400px;
-  height: 500px;
   display: flex;
   flex-direction: column;
   gap: 20px;
