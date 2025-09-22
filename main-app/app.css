@@ -98,7 +98,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    justify-content: center;
+    justify-content: flex-start;
 
     .boxHeader {
       width: 100%;
@@ -117,7 +117,156 @@ body {
     .boxInputs {
       width: 100%;
       height: calc(100% - 20%);
-      background-color: antiquewhite;
+      /* border: 1px solid whitesmoke; */
+
+      #passProperties {
+        /* background-color: brown; */
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .inputWrap {
+          width: 100%;
+          /* background-color: yellowgreen; */
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          label {
+            font-family: InterTight;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px;
+          }
+
+          input {
+            border-radius: 8px;
+            border: 1px solid #333741;
+            background: #0c111d;
+            box-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0);
+            padding: 14px 14px;
+            color: white;
+            font-size: 16px;
+            font-family: InterTight;
+            transition: all 0.2s ease-in-out;
+
+            &:focus {
+              outline: none;
+            }
+
+            &:hover {
+              background: #111726;
+            }
+          }
+        }
+        #genPassBtn {
+          border-radius: 8px;
+          border: none;
+          background: #7f56d9;
+          box-shadow: 0 0 0 1px rgba(12, 17, 29, 0.18) inset,
+            0 -2px 0 0 rgba(12, 17, 29, 0.05) inset,
+            0 1px 2px 0 rgba(255, 255, 255, 0);
+          color: white;
+          padding: 16px 10px;
+          font-size: 16px;
+          font-weight: 600;
+          transition: all 0.2s ease-in-out;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 4px;
+          font-family: InterTight;
+
+          &:hover {
+            cursor: pointer;
+            background-color: #6c44c3;
+          }
+        }
+      }
     }
+  }
+
+  .resultBox {
+    width: 100%;
+    background-color: rgba(31, 10, 51, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    padding: 0px 16px;
+    flex-direction: column;
+    gap: 16px;
+
+    #emptyStateTxt {
+      /* display: none; */
+    }
+
+    p {
+      opacity: 0.4;
+    }
+
+    #generatePassBox {
+      width: 100%;
+      height: 42px;
+      background-color: rgba(16, 5, 26, 0.75);
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.2s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      display: none;
+
+      #password {
+        color: white;
+        opacity: 1;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(39, 18, 59, 0.75);
+      }
+    }
+
+    #resultSubTxt {
+      display: none;
+    }
+  }
+
+  .vaultBox {
+    .savedPassListBox {
+      /* background-color: red; */
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .emptyState {
+        /* background-color: yellow; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .boxHeader {
+    height: 10% !important;
+    /* background-color: red; */
+  }
+
+  .boxInputs {
+    height: calc(100% - 10%) !important;
   }
 }
