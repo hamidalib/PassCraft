@@ -99,7 +99,6 @@ const characters = [
 const genPassBtn = document.getElementById("genPassBtn");
 const emptyStateTxt = document.getElementById("emptyStateTxt");
 const generatePassBox = document.getElementById("generatePassBox");
-let password = document.getElementById("password");
 const resultSubTxt = document.getElementById("resultSubTxt");
 
 genPassBtn.addEventListener("click", function () {
@@ -109,9 +108,13 @@ genPassBtn.addEventListener("click", function () {
   emptyStateTxt.style.display = "none";
   generatePassBox.style.display = "flex";
   resultSubTxt.style.display = "block";
-  console.log(characters.length);
-});
 
-function generatePassword() {
-  console.log(characters.length);
-}
+  let passLen = document.getElementById("passLength").value;
+  let password = document.getElementById("password");
+
+  for (let i = 0; i < passLen; i++) {
+    let randInt = Math.floor(Math.random * characters.length);
+
+    
+  }
+});
