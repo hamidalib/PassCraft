@@ -100,7 +100,10 @@ const genPassBtn = document.getElementById("genPassBtn");
 const emptyStateTxt = document.getElementById("emptyStateTxt");
 const generatePassBox = document.getElementById("generatePassBox");
 const resultSubTxt = document.getElementById("resultSubTxt");
+const savePassBtn = document.getElementById("saveBtn");
+let password = document.getElementById("password");
 
+// Password generation functionality
 genPassBtn.addEventListener("click", function () {
   event.preventDefault(); //stops auto refresh of page
   console.log("genPassBtn clicked");
@@ -108,37 +111,72 @@ genPassBtn.addEventListener("click", function () {
   emptyStateTxt.style.display = "none";
   generatePassBox.style.display = "flex";
   resultSubTxt.style.display = "block";
-
   let passLen = document.getElementById("passLength").value;
-  let password = document.getElementById("password");
+
   password.textContent = "";
 
-  for (let i = 0; i < passLen; i++) {
-    if (passLen > 19) {
-      console.error("Max lenght of password can be 19.");
-      password.textContent = "Error: Max length of password can be 19.";
-      password.style.color = "red";
-      Toastify({
-        text: "This is a toast",
-        duration: 3000,
-        destination: "https://github.com/apvarun/toastify-js",
-        newWindow: true,
-        close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "left", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
-        },
-        onClick: function () {}, // Callback after click
-      }).showToast();
-
-      return;
-    } else {
+  if (passLen > 19) {
+    console.error("Max lenght of password can be 19.");
+    password.textContent = "Error: Max length of password can be 19.";
+    password.style.color = "red";
+    Toastify({
+      text: "Error: Max length of password can be 19.",
+      className: "info",
+      gravity: "bottom",
+      close: true,
+      style: {
+        background: "rgba(143, 54, 54, 0.75)",
+        border: "1px solid rgba(255,255,255,0.1)",
+      },
+    }).showToast();
+  } else {
+    for (let i = 0; i < passLen; i++) {
       let randInt = Math.floor(Math.random() * 93);
       password.textContent += characters[randInt];
       password.style.color = "white";
       console.log(characters[randInt]);
     }
+    Toastify({
+      text: "Password generated",
+      className: "info",
+      gravity: "bottom",
+      close: true,
+      style: {
+        background: "rgba(72, 53, 88, 0.75)",
+        border: "1px solid rgba(255,255,255,0.1)",
+      },
+    }).showToast();
   }
+});
+
+// Copy password functionality
+generatePassBox.addEventListener("click", function () {
+  console.log("Copying password");
+  Toastify({
+    text: "Password Copied!",
+    className: "info",
+    gravity: "bottom",
+    close: true,
+    style: {
+      background: "rgba(72, 53, 88, 0.75)",
+      border: "1px solid rgba(255,255,255,0.1)",
+    },
+  }).showToast();
+
+  navigator.clipboard.writeText(password.textContent);
+});
+
+// Save password functionality
+savePassBtn.addEventListener("click", function () {
+  console.log("Save btn clicked");
+  Toastify({
+    text: "Password Saved!",
+    className: "info",
+    gravity: "bottom",
+    close: true,
+    style: {
+      background: "rgba(72, 53, 88, 0.75)",
+      border: "1px solid rgba(255,255,255,0.1)",
+    },
+  }).showToast();
 });

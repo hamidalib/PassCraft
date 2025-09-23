@@ -219,9 +219,10 @@ body {
       border: 1px solid rgba(255, 255, 255, 0.2);
       transition: all 0.2s ease-in-out;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       display: none;
+      padding: 0px 16px;
 
       #password {
         color: white;
@@ -231,6 +232,20 @@ body {
       &:hover {
         cursor: pointer;
         background-color: rgba(39, 18, 59, 0.75);
+      }
+
+      #saveBtn {
+        padding: 8px;
+        background-color: #121b31;
+        border: none;
+        border-radius: 6px;
+        transition: all 0.2s ease-in-out;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        &:hover {
+          cursor: pointer;
+          background-color: #262f47;
+        }
       }
     }
 
