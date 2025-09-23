@@ -111,10 +111,34 @@ genPassBtn.addEventListener("click", function () {
 
   let passLen = document.getElementById("passLength").value;
   let password = document.getElementById("password");
+  password.textContent = "";
 
   for (let i = 0; i < passLen; i++) {
-    let randInt = Math.floor(Math.random * characters.length);
+    if (passLen > 19) {
+      console.error("Max lenght of password can be 19.");
+      password.textContent = "Error: Max length of password can be 19.";
+      password.style.color = "red";
+      Toastify({
+        text: "This is a toast",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "left", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        onClick: function () {}, // Callback after click
+      }).showToast();
 
-    
+      return;
+    } else {
+      let randInt = Math.floor(Math.random() * 93);
+      password.textContent += characters[randInt];
+      password.style.color = "white";
+      console.log(characters[randInt]);
+    }
   }
 });
